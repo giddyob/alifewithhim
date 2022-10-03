@@ -1,0 +1,208 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>alifewithhim - 48hrs</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/' %}" rel="icon">
+  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="{% static 'https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i' %}" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <!-- Template Main CSS File -->
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Shuffle - v4.9.0
+  * Template URL: https://bootstrapmade.com/bootstrap-3-one-page-template-free-shuffle/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container">
+      <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+
+        <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+        <div class="carousel-inner" role="listbox">
+
+          <!-- Slide 1 -->
+          <div class="carousel-item active" style="background-image: url(static/assets/img/slide/Dec-21-31.jpg);">
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2 class="animate__animated animate__fadeInDown">Welcome to <span>A Life With Him</span></h2>
+                <p class="animate__animated animate__fadeInUp">Kindly use the button below to register for the upcoming</p>
+                <h2 class="animate__animated animate__fadeInUp"><strong>48 hours WORSHIP PRAYER WORD</strong></h2>
+                <a class="btn-get-started animate__animated animate__fadeInUp scrollto" data-bs-target="#staticBackdrop" data-bs-toggle="modal">Click Here To Register</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="carousel-item" style="background-image: url(static/assets/img/slide/0D9A7900.jpg);">
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2 class="animate__animated animate__fadeInDown">Psalm 84:10-12 NKJV</h2>
+                <p class="animate__animated animate__fadeInUp">For a day spent in Your court is better than a thousand. I would rather be a doorkeeper in the house of my God
+                  than dwell in the tents of wickedness. For the Lord God is a sun and shield; No good thing will He withold from those who walk uprightly. O Lord of hosts,
+                  Blessed is the man who trusts in you.
+                </p>
+                <a class="btn-get-started animate__animated animate__fadeInUp scrollto" data-bs-target="#staticBackdrop" data-bs-toggle="modal">Click Here To Register</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="carousel-item" style="background-image: url(static/assets/img/slide/0T2A1529.jpg);">
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2 class="animate__animated animate__fadeInDown">Ezekiel 22:30 NKJV</h2>
+                <p class="animate__animated animate__fadeInUp">So I sought for a man among them who would make a wall, and stand in the gap before Me on behalf of the land, that I should not destroy it; but I found no one.</p>
+                <a class="btn-get-started animate__animated animate__fadeInUp scrollto" data-bs-target="" data-bs-toggle="modal">Click Here To Register</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon bi bi-chevron-double-left" aria-hidden="true"></span>
+        </a>
+
+        <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+          <span class="carousel-control-next-icon bi bi-chevron-double-right" aria-hidden="true"></span>
+        </a>
+
+        <!-- modal form -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Register with your details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form class="row g-3 " method="POST" action="register" >
+                  {% csrf_token %}
+                  <div class="form-group">
+                    {% for message in messages %}
+                    <p class='message'>{{message}}</p>
+                    {% endfor %}
+                    <label for="exampleFormControlSelect1">Fullname</label>
+                    <input type="text" class="form-control" id="inputEmail4" name="user_name" required><br>
+                    <label for="exampleFormControlSelect1">Phone</label>
+                    <input type="text" class="form-control" id="inputEmail4" name="user_phone" required><br>
+                    <label for="exampleFormControlSelect1">Email</label>
+                    <input type="text" class="form-control" id="inputEmail4" name="user_email" required><br>
+                    <label for="exampleFormControlSelect1">Gender</label><br>
+                    <select class="form-control" id="exampleFormControlSelect1" name="user_gender" required><br>
+                      <option>Please select</option>
+                      <option>Male</option>
+                      <option>Female</option>
+                    </select><br>
+                    <label for="exampleFormControlSelect1">How did you hear of this program</label>,<br>
+                    <select class="form-control" id="exampleFormControlSelect1" name="user_mode_of_info" required><br>
+                      <option>Please select</option>
+                      <option>Zoom</option>
+                      <option>The revelation of Jesus</option>
+                      <option>Family and Friends</option>
+                      <option>Social media</option>
+                      <option>Others</option>
+                    </select><br>
+                    <label for="exampleFormControlSelect1">First Time</label>
+                    <select class="form-control" id="exampleFormControlSelect1" name="user_first_time" required><br>
+                      <option>Please select</option>
+                      <option>Yes</option>
+                      <option>No</option>
+                    </select><br>
+                    <label for="exampleFormControlSelect1">Where are you coming from</label>
+                    <input type="text" class="form-control" id="inputEmail4" name="user_residence" required><br>
+                    <label for="exampleFormControlSelect1">When will you arrive</label>
+                    <select class="form-control" id="exampleFormControlSelect1" name="user_arrival_day" required><br>
+                      <option>Please select</option>
+                      <option>Thursday</option>
+                      <option>Friday</option>
+                      <option>Saturday</option>
+                    </select>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="submit" class="btn btn-dark">Submit</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section><!-- End Hero -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>alifewithhim</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        Designed by #alifewithhim
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/waypoints/noframework.waypoints.js' %}"></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+
+</html>
+
