@@ -1,1 +1,1 @@
-web: gunicorn alifewithhim.wsgi --log-file -
+web: gunicorn alifewithhim.wsgi
