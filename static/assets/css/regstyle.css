@@ -41,9 +41,9 @@ html, body {
     }
     form {
     background: #fff;
-    max-width: 550px;
+    max-width: 350px;
     width: 500px;
-    max-height: 550px;
+    max-height: 450px;
     overflow-x: scroll;
     }
     .title {
