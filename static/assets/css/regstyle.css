@@ -42,9 +42,9 @@ html, body {
     form {
     background: #fff;
     max-width: 550px;
+    width: 500px;
+    max-height: 550px;
     overflow-x: scroll;
-    max-height: 350px;
-    height:auto;
     }
     .title {
     display: flex;
