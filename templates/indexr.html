@@ -1,0 +1,53 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dwell 48</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link href="{% static 'assets/css/regstyle.css' %}" rel="stylesheet">
+    
+  </head>
+  <body>
+    <div class="main-block">
+      <form action="/">
+        <div class="title">
+          <i class="fas fa-pencil-alt"></i> 
+          <h2>Register here</h2>
+        </div>
+        <div class="info">
+          <input class="fname" type="text" name="name" placeholder="Full name">
+          <input type="text" name="name" placeholder="Phone number">
+          <input type="text" name="name" placeholder="Email">
+          <select>
+            <option value="course-type" selected>Gender*</option>
+            <option value="short-courses">Male</option>
+            <option value="featured-courses">Female</option>
+          </select>
+          <select>
+            <option value="course-type" selected>How did you hear of the program*</option>
+            <option value="short-courses">Zoom</option>
+            <option value="featured-courses">The revelation of Jesus</option>
+            <option value="short-courses">Family and friends</option>
+            <option value="short-courses">Socia media</option>
+            <option value="short-courses">Others</option>
+          </select>
+          <select>
+            <option value="course-type" selected>First Time*</option>
+            <option value="short-courses">Yes</option>
+            <option value="featured-courses">No</option>
+          </select>
+          <input type="text" name="name" placeholder="Where are you coming from">
+          <select>
+            <option value="course-type" selected>When will you arrive*</option>
+            <option value="short-courses">Thursday</option>
+            <option value="featured-courses">Friday</option>
+            <option value="undergraduate">Saturday</option>
+          </select>
+        </div>
+        <button type="submit" href="/">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>
