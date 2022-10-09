@@ -12,7 +12,8 @@ def index(request):
 
 def register(request):
     if request.method == 'POST':
-        user_name = request.POST['user_name']
+        user_firstname = request.POST['user_firstname']
+        user_lastname = request.POST['user_lastname']
         user_phone = request.POST['user_phone']
         user_email = request.POST['user_email']
         user_gender = request.POST['user_gender']
@@ -20,12 +21,13 @@ def register(request):
         user_first_time = request.POST['user_first_time']
         user_residence = request.POST['user_residence']
         user_arrival_day = request.POST['user_arrival_day']
-        if Registration.objects.filter(user_name=user_name).exists():
+        if Registration.objects.filter(user_firstname=user_firstname, user_lastname=user_lastname).exists():
             messages.info(request, 'Sorry you have registered already')
             return redirect('index')
         else:
             new_reg = Registration(
-                user_name=user_name,
+                user_firstname=user_firstname,
+                user_lastname=user_lastname,
                 user_phone=user_phone,
                 user_email=user_email,
                 user_gender=user_gender,
