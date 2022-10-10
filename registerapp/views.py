@@ -1,8 +1,12 @@
+from http.client import HTTPResponse
+from urllib import response
 from django.shortcuts import render
 from .models import Registration
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from django.shortcuts import redirect
+from django.http import HttpResponse
+import csv
 
 
 # Create your views here.
@@ -24,6 +28,9 @@ def register(request):
         if Registration.objects.filter(user_firstname=user_firstname, user_lastname=user_lastname).exists():
             messages.info(request, 'Sorry you have registered already')
             return redirect('index')
+        elif len(user_phone) != 10:
+            messages.info(request, "Your phone number should be 10 digits")
+            return redirect('index')
         else:
             new_reg = Registration(
                 user_firstname=user_firstname,
@@ -38,3 +45,25 @@ def register(request):
             )
             new_reg.save()
             return render(request, 'congrat.html')
+        
+#creating csv file for download
+def csvfile(request):
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Desposition'] = 'attachment; filename=registrations.csv'
+    
+    #writing to the csv file
+    writer = csv.writer(response)
+    
+    registrations = Registration.objects.all()
+    
+    #adding headings
+    writer.writerow(['First name', 'Last name', 'Phone', 'Email', 'Gender', 'Mode of info', 'Appearance at programs', 'Residence', 'Arrival day'])
+    
+    #Appending to the csv file 
+    for reg in registrations:
+        writer.writerow([reg.user_firstname, reg.user_lastname, reg.user_phone, reg.user_email, reg.user_gender, reg.user_mode_of_info, reg.user_first_time, reg.user_residence, reg.user_arrival_day])
+    return response
+
+#dashboard
+def dashboard(request):
+    return render(request, 'dashboard.html')
