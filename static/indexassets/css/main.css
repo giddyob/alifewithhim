@@ -19,7 +19,7 @@
 /* Colors */
 :root {
   --color-default: #364d59;
-  --color-primary: #ff9f43 ;
+  --color-primary: #EE5A24 ;
   --color-secondary: #52565e;
 }
 
@@ -81,7 +81,7 @@ section {
 }
 
 h3{
-  color: #000080;
+  color: #2980b9;
 }
 
 .section-header h2:before,
@@ -1949,6 +1949,7 @@ h3{
   margin: 10px;
   color: #fff;
   border: 2px solid var(--color-primary);
+  background: var(--color-primary);
 }
 
 .hero .info .btn-get-started:hover {
