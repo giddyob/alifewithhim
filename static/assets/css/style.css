@@ -387,6 +387,8 @@ h6 {
   top: 0;
   left: 0;
   right: 0;
+  overflow: scroll;
+  padding-top: 20px;
 }
 
 #hero .carousel-content {
