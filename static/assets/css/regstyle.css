@@ -101,10 +101,10 @@ html, body {
     button {
     width: 30%;
     align-items: center;
-    background-color: #3EB9CC;
+    background-color: #000080;
     }
     button:hover, .btn-item:hover {
-    background: #3EB9CC;
+    background: #000080;
     }
     @media (min-width: 200px) {
     html, body {

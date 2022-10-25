@@ -45,6 +45,7 @@ def register(request):
             )
             new_reg.save()
             return render(request, 'congrat.html')
+    return render(request, 'register.html')
         
 #creating csv file for download
 def csvfile(request):
