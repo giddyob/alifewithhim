@@ -26,6 +26,8 @@ def register(request):
         user_residence = request.POST['user_residence']
         user_arrival_day = request.POST['user_arrival_day']
         abroad = request.POST['abroad']
+        coming_with_kids = request.POST['coming_with_kids']
+        num_of_kids = request.POST['num_of_kids']
         if Registration.objects.filter(user_firstname=user_firstname, user_lastname=user_lastname).exists():
             messages.info(request, 'Sorry you have registered already')
             return redirect('index')
@@ -44,6 +46,8 @@ def register(request):
                 user_residence=user_residence,
                 user_arrival_day=user_arrival_day,
                 abroad = abroad,
+                coming_with_kids = coming_with_kids,
+                num_of_kids = num_of_kids,
             )
             new_reg.save()
             return render(request, 'congrat.html')
@@ -60,11 +64,11 @@ def csvfile(request):
     registrations = Registration.objects.all()
     
     #adding headings
-    writer.writerow(['First name', 'Last name', 'Phone', 'Email', 'Gender', 'Mode of info', 'Appearance at programs', 'Residence', 'Arrival day', 'Abroad'])
+    writer.writerow(['First name', 'Last name', 'Phone', 'Email', 'Gender', 'Mode of info', 'Appearance at programs', 'Residence', 'Arrival day', 'Abroad', 'Coming with kid', 'Number of kids,'])
     
     #Appending to the csv file 
     for reg in registrations:
-        writer.writerow([reg.user_firstname, reg.user_lastname, reg.user_phone, reg.user_email, reg.user_gender, reg.user_mode_of_info, reg.user_first_time, reg.user_residence, reg.user_arrival_day, reg.abroad])
+        writer.writerow([reg.user_firstname, reg.user_lastname, reg.user_phone, reg.user_email, reg.user_gender, reg.user_mode_of_info, reg.user_first_time, reg.user_residence, reg.user_arrival_day, reg.abroad, reg.coming_with_kids, reg.num_of_kids,])
     return response
 
 #dashboard

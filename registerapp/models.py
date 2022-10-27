@@ -13,5 +13,7 @@ class Registration(models.Model):
     user_residence = models.CharField(max_length=100)
     user_arrival_day = models.CharField(max_length=50)
     abroad = models.CharField(max_length=50, default=" ")
+    coming_with_kids = models.CharField(max_length=50, default=" ")
+    num_of_kids = models.CharField(max_length=50, default=" ")
     
     
