@@ -74,3 +74,11 @@ def csvfile(request):
 #dashboard
 def dashboard(request):
     return render(request, 'dashboard.html')
+
+
+def registrations(request):
+    return render(request, 'registrations.html')
+
+
+def about(request):
+    return render(request, 'about.html')
