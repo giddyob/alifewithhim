@@ -30,10 +30,10 @@ def register(request):
         num_of_kids = request.POST['num_of_kids']
         if Registration.objects.filter(user_firstname=user_firstname, user_lastname=user_lastname).exists():
             messages.info(request, 'Sorry you have registered already')
-            return redirect('index')
+            return redirect('register')
         elif len(user_phone) != 10:
             messages.info(request, "Your phone number should be 10 digits")
-            return redirect('index')
+            return redirect('register')
         else:
             new_reg = Registration(
                 user_firstname=user_firstname,
@@ -48,6 +48,7 @@ def register(request):
                 abroad = abroad,
                 coming_with_kids = coming_with_kids,
                 num_of_kids = num_of_kids,
+                date_of_registration = date_of_registration,
             )
             new_reg.save()
             return render(request, 'congrat.html')
