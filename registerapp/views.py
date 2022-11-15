@@ -7,7 +7,7 @@ from django.contrib import messages
 from django.shortcuts import redirect
 from django.http import HttpResponse
 import csv
-import datetime
+
 
 
 # Create your views here.
@@ -49,7 +49,6 @@ def register(request):
                 abroad = abroad,
                 coming_with_kids = coming_with_kids,
                 num_of_kids = num_of_kids,
-                date_of_registration = date_of_registration,
             )
             new_reg.save()
             return render(request, 'congrat.html')
