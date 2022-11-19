@@ -7,6 +7,7 @@ urlpatterns = [
     path('register', views.register, name='register'),
     path('dashboard', views.dashboard, name="dashboard"),
     path('csvfile', views.csvfile, name='csvfile'),
-    path('registrations', views.registrations, name='registrations'),
+    path('verify', views.verify, name='verify'),
     path('about', views.about, name='about'),
+    path('verify/<int:reg_id>', views.verify, name='verify')
 ]

@@ -15,5 +15,6 @@ class Registration(models.Model):
     abroad = models.CharField(max_length=50, default=" ")
     coming_with_kids = models.CharField(max_length=50, default=" ")
     num_of_kids = models.CharField(max_length=50, default=" ")
+    verified = models.BooleanField(default=False)
     
     

@@ -74,12 +74,49 @@ def csvfile(request):
 
 #dashboard
 def dashboard(request):
-    return render(request, 'dashboard.html')
+    query = Registration.objects.all
+    total_reg = reg_total()
+    total_verified = verified_total()
+    total_unverified = unverified_total()
+    context = {
+        'query':query,
+        'total_reg':total_reg,
+        'total_verified':verified_total,
+        'total_unverified':unverified_total
+    }
+    return render(request, 'data.html', context)
 
 
-def registrations(request):
-    return render(request, 'registrations.html')
+def verify(request, reg_id):
+    registration = Registration.objects.get(id=reg_id)
+    registration.verified = True
+    registration.save()
+    return redirect('dashboard')
 
 
 def about(request):
     return render(request, 'about.html')
+
+def reg_total():
+    registrations = Registration.objects.all()
+    total_reg = 0
+    for reg in registrations:
+        total_reg += 1
+    return total_reg
+
+def verified_total():
+    registrations = Registration.objects.all()
+    total_verified = 0
+    for reg in registrations:
+        if reg.verified:
+            total_verified +=1
+    return total_verified
+
+def unverified_total():
+    registrations = Registration.objects.all()
+    total_unverified = 0
+    for reg in registrations:
+        if reg.verified == False:
+            total_unverified +=1
+    return total_unverified
+ 
