@@ -1,0 +1,129 @@
+html, body {
+    min-height: 100%;
+    }
+    body, div, form, input, select, p { 
+    padding: 0;
+    margin: 0;
+    outline: none;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 16px;
+    color: rgb(0, 0, 0);
+    }
+    body {
+    background: url("static/assets/img/slide/Dec-21-31.jpg") no-repeat center;
+    background-size: cover;
+    }
+    h1, h2 {
+    text-transform: uppercase;
+    font-weight: 400;
+    }
+    h2 {
+    margin: 0 0 0 8px;
+    color:black;
+    }
+    .main-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 25px;
+    background: rgba(0, 0, 0, 0.5); 
+    }
+    .left-part, form {
+    padding: 25px;
+    }
+    .left-part {
+    text-align: center;
+    }
+    .fa-graduation-cap {
+    font-size: 72px;
+    }
+    form {
+    background: #fff;
+    max-width: 350px;
+    width: 500px;
+    max-height: 450px;
+    overflow-x: scroll;
+    }
+    .title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    color:rgb(0, 0, 0);
+    }
+    .info {
+    display: flex;
+    flex-direction: column;
+    }
+    input, select {
+    padding: 5px;
+    margin-bottom: 30px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgb(0, 0, 0);
+    }
+    input::placeholder {
+    color: rgb(5, 0, 0);
+    }
+    option:focus {
+    border: none;
+    }
+    option {
+    background: #fff; 
+    border: none;
+    }
+    .checkbox input {
+    margin: 0 10px 0 0;
+    vertical-align: middle;
+    }
+    .checkbox a {
+    color: #26a9e0;
+    }
+    .checkbox a:hover {
+    color: #85d6de;
+    }
+    .btn-item, button {
+    padding: 10px 5px;
+    margin-top: 20px;
+    border-radius: 5px; 
+    border: none;
+    background: #000000; 
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 400;
+    color: #fff;
+    }
+    .btn-item {
+    display: inline-block;
+    margin: 20px 5px 0;
+    }
+    button {
+    width: 30%;
+    align-items: center;
+    background-color: #000080;
+    }
+    button:hover, .btn-item:hover {
+    background: #000080;
+    }
+    @media (min-width: 200px) {
+    html, body {
+    height: 100%;
+    }
+    .main-block {
+    flex-direction: row;
+    height: calc(100% - 50px);
+    }
+    .left-part, form {
+    flex: 1;
+    height: auto;
+    }
+    }
+
+    p.message{
+        color:red;
+    }
+    .message {
+        color: red;
+        font-size:12px;
+    }
