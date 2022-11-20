@@ -84,7 +84,7 @@ def dashboard(request):
         'total_verified':verified_total,
         'total_unverified':unverified_total
     }
-    return render(request, 'data.html', context)
+    return render(request, 'dashboard.html', context)
 
 
 def verify(request, reg_id):
