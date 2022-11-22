@@ -7,6 +7,8 @@ from django.contrib import messages
 from django.shortcuts import redirect
 from django.http import HttpResponse
 import csv
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login
 
 
 
@@ -81,11 +83,36 @@ def dashboard(request):
     context = {
         'query':query,
         'total_reg':total_reg,
-        'total_verified':verified_total,
-        'total_unverified':unverified_total
+        'total_verified':total_verified,
+        'total_unverified':total_unverified,
     }
-    return render(request, 'dashboard.html', context)
+    return render(request, 'admin.html', context)
 
+def verified(request):
+    query = Registration.objects.all
+    total_reg = reg_total()
+    total_verified = verified_total()
+    total_unverified = unverified_total()
+    context = {
+        'query':query,
+        'total_reg':total_reg,
+        'total_verified':total_verified,
+        'total_unverified':total_unverified,
+    }
+    return render(request, 'verified.html', context)
+
+def unverified(request):
+    query = Registration.objects.all
+    total_reg = reg_total()
+    total_verified = verified_total()
+    total_unverified = unverified_total()
+    context = {
+        'query':query,
+        'total_reg':total_reg,
+        'total_verified':total_verified,
+        'total_unverified':total_unverified,
+    }
+    return render(request, 'unverified.html', context)
 
 def verify(request, reg_id):
     registration = Registration.objects.get(id=reg_id)
@@ -119,4 +146,54 @@ def unverified_total():
         if reg.verified == False:
             total_unverified +=1
     return total_unverified
- 
+
+def unverify(request, reg_id):
+    registration = Registration.objects.get(id=reg_id)
+    registration.verified = False
+    registration.save()
+    return redirect('dashboard')
+
+
+def verification(request):
+    query = Registration.objects.all
+    total_reg = reg_total()
+    total_verified = verified_total()
+    total_unverified = unverified_total()
+    context = {
+        'query':query,
+        'total_reg':total_reg,
+        'total_verified':total_verified,
+        'total_unverified':total_unverified,
+    }
+    return render(request, 'verify.html', context)
+
+def page_register(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        password2 = request.POST['password2']
+
+        if password == password2:
+            if User.objects.filter(username=username).exists():
+                messages.info(request, 'Username Already Used')
+            else:
+                user = User.objects.create_user(username=username, password=password,)
+                user.save()
+                return redirect('login')
+        else:
+            messages.info(request, 'Passwords Do Not Match')
+            return redirect('page-register')
+    return render(request, 'admin-reg.html')
+
+def admin_login(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('dashboard')
+        else:
+            return redirect('admin_login')
+    else:
+        return render(request, 'admin-login.html')

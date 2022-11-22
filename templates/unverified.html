@@ -22,7 +22,7 @@
                 <div class="container-fluid px-4">
                     <h1 class="mt-4">Dashboard</h1>
                     <ol class="breadcrumb mb-4">
-                        <li class="breadcrumb-item active">Registrations</li>
+                        <li class="breadcrumb-item active">Unverified</li>
                     </ol>
                     <div class="row">
                         <div class="col-xl-4 col-md-6">
@@ -57,7 +57,6 @@
                         </div>
                     </div>
                     <a href="csvfile"><button type="button" class="btn btn-secondary">Download Csv file</button></a>
-                    <a href="unverify"><button type="button" class="btn btn-secondary">Unverify</button></a>
                     <br><br>
                     <div class="card mb-4">
                         <div class="card-body">
@@ -74,6 +73,7 @@
                             </thead>
                             <tbody>
                             {% for reg in query %}
+                            {% if reg.verified == False %}
                             <tr>
                                 <td>{{reg.user_firstname}}</td>
                                 <td>{{reg.user_lastname}}</td>
@@ -90,6 +90,7 @@
                                 <td><a href="{% url 'verify' reg_id=reg.id %}" class="btn btn-primary"> Verify </a></td>
                                 {% endif %}
                             </tr>
+                            {% endif %}
                             {% endfor %}
                             </tbody>
                             </table>
