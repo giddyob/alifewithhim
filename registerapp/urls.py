@@ -15,5 +15,6 @@ urlpatterns = [
     path('unverified', views.unverified, name='unverified'),
     path('verification', views.verification, name='verification'),
     path('admin_login', views.admin_login, name='admin_login'),
-    path('page_register', views.page_register, name="page-register")
+    path('page_register', views.page_register, name="page-register"),
+    path('user_logout', views.user_logout, name="user_logout"),
 ]

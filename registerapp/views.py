@@ -8,8 +8,9 @@ from django.shortcuts import redirect
 from django.http import HttpResponse
 import csv
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.db.models import Q
+from django.contrib.auth.decorators import login_required
 
 
 
@@ -76,6 +77,7 @@ def csvfile(request):
     return response
 
 #dashboard
+@login_required(login_url="admin_login")
 def dashboard(request):
     query = Registration.objects.all
     total_reg = reg_total()
@@ -203,3 +205,9 @@ def admin_login(request):
             return redirect('admin_login')
     else:
         return render(request, 'admin-login.html')
+    
+
+def user_logout(request):
+    logout(request)
+    return redirect("admin_login")
+        
