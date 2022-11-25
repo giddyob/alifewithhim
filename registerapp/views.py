@@ -9,6 +9,7 @@ from django.http import HttpResponse
 import csv
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
+from django.db.models import Q
 
 
 
@@ -155,7 +156,12 @@ def unverify(request, reg_id):
 
 
 def verification(request):
-    query = Registration.objects.all
+    if 'q' in request.GET:
+        q = request.GET['q']
+        multiple_q = Q(Q(user_firstname__icontains=q) | Q(user_lastname__icontains=q))
+        query = Registration.objects.filter(multiple_q)
+    else:
+        query = []
     total_reg = reg_total()
     total_verified = verified_total()
     total_unverified = unverified_total()
