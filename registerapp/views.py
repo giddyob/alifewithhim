@@ -173,7 +173,7 @@ def verification(request):
         'total_verified':total_verified,
         'total_unverified':total_unverified,
     }
-    return render(request, 'verify.html', context)
+    return render(request, 'search.html', context)
 
 def page_register(request):
     if request.method == 'POST':
