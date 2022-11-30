@@ -63,6 +63,8 @@
           <tr>
               <td>{{reg.user_firstname}}</td>
               <td>{{reg.user_lastname}}</td>
+              {% if reg.user_arrival_day == "When will you arrive*" %}
+              <td>Not stated</td>
               <td>{{reg.user_arrival_day}}</td>
               {% if reg.user_first_time == "Have you been to any of our programs" %}
               <td>Not stated</td>
