@@ -124,6 +124,12 @@ def verify(request, rg_id):
     messages.success(request, "succesfully verified")
     return redirect('verification')
 
+def unverify(request, rg_id):
+    registration = Registration.objects.get(id=rg_id)
+    registration.verified = False
+    registration.save()
+    return redirect('verified')
+
 def admin_verify(request, reg_id):
     registration = Registration.objects.get(id=reg_id)
     registration.verified = True
@@ -156,12 +162,6 @@ def unverified_total():
         if reg.verified == False:
             total_unverified +=1
     return total_unverified
-
-def unverify(request, reg_id):
-    registration = Registration.objects.get(id=reg_id)
-    registration.verified = False
-    registration.save()
-    return redirect('dashboard')
 
 
 def verification(request):

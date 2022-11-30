@@ -15,7 +15,7 @@
   </head>
   <body>
     {% for message in messages %}
-      <div class="alert alert-success d-flex align-items-center" role="alert">
+      <div class="alert alert-success d-flex align-items-center alert-dismissible fade show" role="alert">
         <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
         <div>
           {{message}}
@@ -26,6 +26,10 @@
       <form>
         <fieldset>
           <legend>Welcome To Dwell.48</legend>
+          <p>
+            Kindly search your name below to verify if you registered before coming. Scroll down and click on the blue button under status (i.e. verify)
+            Or <a href="register">Register here</a>
+          </p>
           <div class="inner-form">
             <div class="input-field">
               <input class="form-control" type="text" name="q" placeholder="Type to search..." />
