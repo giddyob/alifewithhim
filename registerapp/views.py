@@ -117,7 +117,14 @@ def unverified(request):
     }
     return render(request, 'unverified.html', context)
 
-def verify(request, reg_id):
+def verify(request, rg_id):
+    registration = Registration.objects.get(id=rg_id)
+    registration.verified = True
+    registration.save()
+    messages.success(request, "succesfully verified")
+    return redirect('verification')
+
+def admin_verify(request, reg_id):
     registration = Registration.objects.get(id=reg_id)
     registration.verified = True
     registration.save()

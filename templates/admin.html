@@ -127,7 +127,7 @@
                                         {% if reg.verified %}
                                         <td>Verified</th>
                                         {% else %}  
-                                        <td><a href="{% url 'verify' reg_id=reg.id %}" class="btn btn-primary"> Verify </a></td>
+                                        <td><a href="{% url 'admin_verify' reg_id=reg.id %}" class="btn btn-primary"> Verify </a></td>
                                         {% endif %}
                                     </tr>
                                     {% endfor %}

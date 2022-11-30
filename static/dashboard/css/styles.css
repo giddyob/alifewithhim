@@ -4930,9 +4930,12 @@ textarea.form-control-lg {
 .alert {
   position: relative;
   padding: 1rem 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: -5rem;
   border: 1px solid transparent;
   border-radius: 0.25rem;
+  margin-top: 10px;
+  margin-left: 35%;
+  height: 30px;
 }
 
 .alert-heading {
