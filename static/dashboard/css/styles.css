@@ -164,7 +164,7 @@ p {
   margin-bottom: 1rem;
   color: white;
   font-size: 20px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: ui-serif;
 }
 
 abbr[title],
@@ -4937,7 +4937,7 @@ textarea.form-control-lg {
   border: 1px solid transparent;
   border-radius: 0.25rem;
   margin-top: 10px;
-  margin-left: 35%;
+  margin-left: 25%;
   height: 30px;
 }
 
@@ -4999,8 +4999,10 @@ textarea.form-control-lg {
 
 .alert-warning {
   color: #664d03;
-  background-color: #fff3cd;
-  border-color: #ffecb5;
+  background-color: #45ed72;
+  border-color: #28d356;
+  height: 50px;
+  width: 50%;
 }
 .alert-warning .alert-link {
   color: #523e02;
