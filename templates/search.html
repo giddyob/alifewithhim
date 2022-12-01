@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="author" content="colorlib.com">
+
+    <link href="{% static 'indexassets/img/logo-alwh.png' %}" rel="icon">
+
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,800" rel="stylesheet" />
     <link href="{% static 'verifs/css/main.css' %}" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
@@ -16,7 +19,7 @@
   <body>
     {% for message in messages %}
       <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong> Halleluya! </strong> {{message}}
+        <strong> Halleluja! </strong> {{message}}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
     {% endfor %}

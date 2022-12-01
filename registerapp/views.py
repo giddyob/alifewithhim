@@ -121,7 +121,7 @@ def verify(request, rg_id):
     registration = Registration.objects.get(id=rg_id)
     registration.verified = True
     registration.save()
-    messages.success(request, "succesfully verified")
+    messages.success(request, "You have been succesfully verified")
     return redirect('verification')
 
 def admin_verify(request, reg_id):
@@ -161,7 +161,7 @@ def unverify(request, reg_id):
     registration = Registration.objects.get(id=reg_id)
     registration.verified = False
     registration.save()
-    return redirect('dashboard')
+    return redirect('verified')
 
 
 def verification(request):
@@ -218,3 +218,8 @@ def user_logout(request):
     logout(request)
     return redirect("admin_login")
         
+
+def reg_delete(request, reg_id):
+    registration = Registration.objects.filter(id=reg_id)
+    registration.delete()
+    return redirect("verified")

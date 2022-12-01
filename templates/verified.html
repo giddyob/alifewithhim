@@ -10,6 +10,8 @@
         <meta content="" name="description">
         <meta content="" name="keywords">
     
+        <link href="{% static 'indexassets/img/logo-alwh.png' %}" rel="icon">
+
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="{% static 'dashboard/css/styles.css' %}" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
@@ -126,7 +128,7 @@
                                         {% endif %}
                                         <td>{{reg.user_phone}}</td>
                                         {% if reg.verified %}
-                                        <td>Verified</th>
+                                        <td><a href="{% url 'unverify' reg_id=reg.id %}" class="btn btn-danger"> Unverify </a></td>
                                         {% else %}  
                                         <td><a href="{% url 'admin_verify' reg_id=reg.id %}" class="btn btn-primary"> Verify </a></td>
                                         {% endif %}
